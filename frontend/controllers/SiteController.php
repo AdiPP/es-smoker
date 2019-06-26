@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\Gejala;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -255,6 +256,24 @@ class SiteController extends Controller
 
         return $this->render('resendVerificationEmail', [
             'model' => $model
+        ]);
+    }
+
+    public function actionPertanyaan()
+    {
+        $gejalas = Gejala::find();
+        if ($results = Yii::$app->request->post()) {
+
+            // return var_dump($results);
+            // die();
+
+            return $this->render('hasil', [
+                'results' => $results,
+            ]);
+        }
+
+        return $this->render('pertanyaan', [
+            'gejalas' => $gejalas->all(),
         ]);
     }
 }

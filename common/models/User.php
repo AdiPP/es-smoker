@@ -53,7 +53,8 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_INACTIVE],
+            ['status', 'default', 'value' => self::STATUS_INACTIVE], // Default STATUS_INACTIVE,
+            /* Change the default value to ACTIVE. So, User can register without email verification.*/
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
     }
