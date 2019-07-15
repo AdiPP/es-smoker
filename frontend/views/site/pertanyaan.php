@@ -19,11 +19,17 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-5">
             <div>
                 <?= Html::beginForm(['site/pertanyaan'], 'post', ['enctype' => 'multipart/form-data']) ?>
-                <?php foreach ($gejalas as $gejala): ?>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="answear[]" value="<?= $gejala->idgejala ?>"><?= $gejala->nmgejala ?></label>
+                <?php 
+                $i=0;
+                foreach ($gejalas as $gejala): ?>
+                    <div class="form-group">
+                        <label><?= $gejala->nmgejala ?></label><br>
+                        <label class="radio-inline"><input type="radio" name="answear[<?= $i ?>]" value="1">Ya</label>
+                        <label class="radio-inline"><input type="radio" name="answear[<?= $i ?>]" value="0">Tidak</label>
                     </div>
-                <?php endforeach ?>
+                <?php 
+                $i++;
+                endforeach ?>
                 <!-- <div class="checkbox">
                     <label><input type="checkbox" name="answear[]" value="1">Option 1</label>
                 </div>

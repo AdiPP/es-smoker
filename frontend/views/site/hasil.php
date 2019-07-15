@@ -18,6 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-lg-5">
             <div>
+                <!-- <//?php 
+                var_dump($results['answear']);
+                echo '<br>'.$results['answear'][0];
+                 ?> -->
                 <?php foreach ($results['answear'] as $result): ?>
                     <?= $result."</br>" ?>
                 <?php endforeach ?>
